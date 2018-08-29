@@ -5,7 +5,8 @@ window.jQuery = function (nodeOrSelector) {
     return nodes
 }
 
-window.jQuery.ajax = (url, method, data, success, error, headers) => {
+window.jQuery.ajax = function({url, method, data, success, error, headers}) {
+
     let request = new XMLHttpRequest()
 
     request.open(method, url)
@@ -52,21 +53,21 @@ btn.addEventListener('click', () => {
     //         }
     //     }
     // }
-    $.ajax(
-        '/xx',
-        'post',
-        'haha',
-        function f1(x) {
+    $.ajax({
+        url: '/xxx',
+        method:'post',
+        data: 'haha',
+        success: (x) => {
             console.log(x)
         },
-        function f2(x) {
+        error: (x) => {
             console.log(x)
         },
-        {
+        headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'frank': '18'
+            'jjs': '18'
         }
-    )
+    })
 })
 
 

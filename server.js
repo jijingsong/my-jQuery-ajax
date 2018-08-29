@@ -19,6 +19,10 @@ var server = http.createServer(function (request, response) {
     var str = fs.readFileSync('./index.html', 'utf8')
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
     response.end(str)
+  } else if (pathNoQuery === '/main.js') {
+    var str = fs.readFileSync('./main.js', 'utf8')
+    response.setHeader('content-Type', 'text/javascript')
+    response.end(str)
   } else if (pathNoQuery === '/xxx') {
     response.statusCode = 200
     response.setHeader('content-Type', 'text/json;charset=utf-8')
